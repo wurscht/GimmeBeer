@@ -1,6 +1,7 @@
 package ch.bbcag.gimmebeer;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,9 +34,19 @@ public class ShowAllActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_all);
         progressBar = findViewById(R.id.progressbar);
-
+        Intent intent = getIntent();
+        beerId = intent.getIntExtra("id", 0);
+        String name = intent.getStringExtra("name");
+        progressBar.setVisibility(View.VISIBLE);
+        loadAllBeer(PUNK_API_URL);
     }
 
+    /*
+     * Function to load all the beers from the Punk API
+     *
+     * @param url the url of the Punk API
+     *
+     */
     private void loadAllBeer(String url)
     {
         final ArrayAdapter<Beer> beerInfoAdapter = new
