@@ -85,7 +85,7 @@ public class ShowAllActivity extends AppCompatActivity {
                 finish();
             }
         });
-        dialogBuilder.setMessage("Die Badidetails konnten nicht geladen werden. Versuche es später nochmals.").setTitle("Fehler");
+        dialogBuilder.setMessage("The beer details could not be loaded. Try it again later.").setTitle("Error");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }

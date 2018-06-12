@@ -21,9 +21,17 @@ public class Beer {
         this.description = description;
     }
 
-    public void addFoodPairing(List<String> foodpairing) { this.addFoodPairing(foodpairing);}
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    public void setFoodPairing(List<String> foodpairing) {
+        this.foodpairing = foodpairing;
+    }
 
     public List<String> getFoodpairing() {
         return foodpairing;
     }
 }
+
