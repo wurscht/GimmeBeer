@@ -19,7 +19,7 @@
     <Button
         android:id="@+id/random_strong_beer"
         android:layout_width="188dp"
-        android:layout_height="46dp"
+        android:layout_height="0dp"
         android:text="More Alcohol!"
         android:visibility="visible"
         tools:layout_editor_absoluteX="100dp"
@@ -28,7 +28,7 @@
     <Button
         android:id="@+id/random_light_beer"
         android:layout_width="189dp"
-        android:layout_height="47dp"
+        android:layout_height="0dp"
         android:text="Something Light"
         android:visibility="visible"
         tools:layout_editor_absoluteX="100dp"
@@ -37,7 +37,7 @@
     <Button
         android:id="@+id/random_beer"
         android:layout_width="189dp"
-        android:layout_height="46dp"
+        android:layout_height="0dp"
         android:text="Gimme Another"
         android:visibility="visible"
         tools:layout_editor_absoluteX="98dp"
@@ -135,13 +135,22 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="247dp"
-        android:layout_height="44dp"
+        android:layout_height="0dp"
         android:text="Your random beer:"
         android:textAlignment="center"
         android:textSize="24sp"
         android:visibility="visible"
         tools:layout_editor_absoluteX="69dp"
         tools:layout_editor_absoluteY="85dp" />
+
+    <Button
+        android:id="@+id/button_show_all"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="Test"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="288dp"
+        tools:layout_editor_absoluteY="246dp" />
 
 
 </android.support.constraint.ConstraintLayout>
