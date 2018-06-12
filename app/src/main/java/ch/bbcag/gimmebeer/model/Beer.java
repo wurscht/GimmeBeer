@@ -21,6 +21,8 @@ public class Beer {
         this.description = description;
     }
 
+    public void addFoodPairing(List<String> foodpairing) { this.addFoodPairing(foodpairing);}
+
     public List<String> getFoodpairing() {
         return foodpairing;
     }
