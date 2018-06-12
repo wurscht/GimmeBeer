@@ -6,7 +6,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -28,6 +30,7 @@ public class ShowAllActivity extends AppCompatActivity {
     private int beerId;
     private ProgressBar progressBar;
     private static final String PUNK_API_URL = "https://api.punkapi.com/v2/beers";
+    ListView allBeers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,15 @@ public class ShowAllActivity extends AppCompatActivity {
         String name = intent.getStringExtra("name");
         progressBar.setVisibility(View.VISIBLE);
         loadAllBeer(PUNK_API_URL);
+        allBeers = findViewById(R.id.list_all_beer);
+        // Make elements in listview show all beer clickable and redirect to detail site
+        allBeers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent appInfo = new Intent(ShowAllActivity.this, DetailsActivity.class);
+                startActivity(appInfo);
+            }
+        });
     }
 
     /*
