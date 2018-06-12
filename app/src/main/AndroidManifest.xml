@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainDetailsActivity"></activity>
-        <activity android:name=".ShoeAllActivity"></activity>
+        <activity android:name=".ShowAllActivity"></activity>
     </application>
 
 </manifest>
