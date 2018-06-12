@@ -7,41 +7,36 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <SearchView
-        android:layout_width="54dp"
-        android:layout_height="47dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.609"
-        app:layout_constraintStart_toEndOf="@+id/guideline13"
-        tools:layout_editor_absoluteY="0dp" />
-
 
     <Button
         android:id="@+id/random_strong_beer"
-        android:layout_width="188dp"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:text="More Alcohol!"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="447dp" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toTopOf="@+id/guideline20" />
 
     <Button
         android:id="@+id/random_light_beer"
-        android:layout_width="189dp"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:text="Something Light"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="383dp" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toTopOf="@+id/guideline16" />
 
     <Button
         android:id="@+id/random_beer"
-        android:layout_width="189dp"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:text="Gimme Another"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="317dp" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toTopOf="@+id/guideline19" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline11"
@@ -124,6 +119,7 @@
         android:id="@+id/imageButton"
         android:layout_width="189dp"
         android:layout_height="163dp"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -149,8 +145,8 @@
         android:layout_height="0dp"
         android:text="Test"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="288dp"
-        tools:layout_editor_absoluteY="246dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 
 </android.support.constraint.ConstraintLayout>
