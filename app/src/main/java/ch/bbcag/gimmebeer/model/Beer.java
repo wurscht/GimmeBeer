@@ -7,14 +7,16 @@ public class Beer {
     private int id;
     private String name;
     private double abv;
+    private String image;
     private String keynote;
     private String description;
     private List<String> foodpairing = new ArrayList<>();
 
-    public Beer (int id, String name, double abv, String keynote, String description) {
+    public Beer (int id, String name, double abv, String image, String keynote, String description) {
         this.id = id;
         this.name = name;
         this.abv = abv;
+        this.image = image;
         this.keynote = keynote;
         this.description = description;
     }
