@@ -11,6 +11,8 @@ public class Beer {
     private String keynote;
     private String description;
     private List<String> foodpairing = new ArrayList<>();
+    public static final String HIGH_ABV = "8";
+    public static final String LOW_ABV = "5";
 
     public Beer (int id, String name, double abv, String image, String keynote, String description) {
         this.id = id;

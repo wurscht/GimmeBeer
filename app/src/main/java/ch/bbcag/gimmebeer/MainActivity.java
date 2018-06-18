@@ -50,6 +50,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Show all button
+        Button showAllButton = findViewById(R.id.button_show_all);
+        showAllButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ShowAllActivity.class));
+            }
+        });
+
+        // Random beer button
         Button randomBeerButton = findViewById(R.id.random_beer);
         randomBeerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,13 +70,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button showAllButton = findViewById(R.id.button_show_all);
-        showAllButton.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), ShowAllActivity.class));
+                Intent intent = new Intent(getApplicationContext(), ShowSearchActivity.class);
+                intent.putExtra("buttonId", view.getId());
+                startActivity(intent);
             }
-        });
+        };
+
+        Button randomLightBeerButton = findViewById(R.id.random_light_beer);
+        Button randomStrongBeerButton = findViewById(R.id.random_strong_beer);
+
+        randomLightBeerButton.setOnClickListener(listener);
+        randomStrongBeerButton.setOnClickListener(listener);
+
         loadRandomPicture(PUNK_API_URL_RANDOM);
     }
 
