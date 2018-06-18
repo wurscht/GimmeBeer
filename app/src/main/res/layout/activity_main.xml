@@ -16,7 +16,9 @@
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="@+id/guideline12"
-        app:layout_constraintTop_toTopOf="@+id/guideline20" />
+        app:layout_constraintTop_toTopOf="@+id/guideline20"
+        android:textColor="#EAC64C "
+        android:background="@drawable/buttonshape"/>
 
     <Button
         android:id="@+id/random_light_beer"
@@ -26,7 +28,9 @@
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="@+id/guideline12"
-        app:layout_constraintTop_toTopOf="@+id/guideline16" />
+        app:layout_constraintTop_toTopOf="@+id/guideline16"
+        android:textColor="#EAC64C "
+        android:background="@drawable/buttonshape"/>
 
     <Button
         android:id="@+id/random_beer"
@@ -36,7 +40,9 @@
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="@+id/guideline12"
-        app:layout_constraintTop_toTopOf="@+id/guideline19" />
+        app:layout_constraintTop_toTopOf="@+id/guideline19"
+        android:textColor="#EAC64C "
+        android:background="@drawable/buttonshape"/>
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline11"
@@ -164,7 +170,7 @@
         android:text="Test"
         android:visibility="visible"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"/>
 
 
 </android.support.constraint.ConstraintLayout>
