@@ -92,8 +92,22 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="446dp" />
 
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/imageDetail"
+        app:layout_constraintEnd_toEndOf="@+id/imageDetail"
+        app:layout_constraintStart_toStartOf="@+id/imageDetail"
+        app:layout_constraintTop_toTopOf="@+id/imageDetail" />
+
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageDetail"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline14"
@@ -141,7 +155,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageDetail"
         app:layout_constraintVertical_bias="1.0">
 
         <TextView

@@ -16,19 +16,18 @@ public class DetailsActivity extends AppCompatActivity {
 
     }
 
-    
-    void collapseTextView() {
-        if (txtDescription.getVisibility() == View.GONE) {
-            // it's collapsed - expand it
-            txtDescription.setVisibility(View.VISIBLE);
-        } else {
-            // it's expanded - collapse it
-            txtDescription.setVisibility(View.GONE);
-            txtDescription.setImageResource(R.drawable.ic_expand_more_black_24dp);
-        }
-
-        ObjectAnimator animation = ObjectAnimator.ofInt(txtDescription, "maxLines", txtDescription.getMaxLines());
-        animation.setDuration(200).start();
-    }
+//    void collapseExpandTextView() {
+//        if (txtDescription.getVisibility() == View.GONE) {
+//            // it's collapsed - expand it
+//            txtDescription.setVisibility(View.VISIBLE);
+//        } else {
+//            // it's expanded - collapse it
+//            txtDescription.setVisibility(View.GONE);
+//            txtDescription.setImageResource(R.drawable.ic_expand_more_black_24dp);
+//        }
+//
+//        ObjectAnimator animation = ObjectAnimator.ofInt(txtDescription, "maxLines", txtDescription.getMaxLines());
+//        animation.setDuration(200).start();
+//    }
 
 }
