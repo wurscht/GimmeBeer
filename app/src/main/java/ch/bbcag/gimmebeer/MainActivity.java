@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -38,13 +39,25 @@ import ch.bbcag.gimmebeer.model.Beer;
 
 public class MainActivity extends AppCompatActivity {
     private static final String PUNK_API_URL_RANDOM = "https://api.punkapi.com/v2/beers/random";
+    private ProgressBar progressBar;
+    ImageView picture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        progressBar = findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.VISIBLE);
+        picture = findViewById(R.id.random_image);
+        picture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), DetailsActivity.class));
+            }
+        });
+
         Button button = findViewById(R.id.button_show_all);
-        button.setOnClickListener(new View.OnClickListener(){
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), ShowAllActivity.class));
@@ -64,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             Beer random_beer = PunkApiParser.parseSingleBeer(response);
-                            //beerPictureInfoAdapter.addAll(random_beer);
-                            ImageView beerImageButton = findViewById(R.id.imageButton);
+                            ImageView beerImageButton = findViewById(R.id.random_image);
                             new DownloadImageTask(beerImageButton).execute(random_beer.getImage());
 
                         } catch (JSONException e) {

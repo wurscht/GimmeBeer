@@ -115,11 +115,26 @@
         android:layout_height="wrap_content"
         app:barrierDirection="top" />
 
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/random_image"
+        app:layout_constraintEnd_toEndOf="@+id/random_image"
+        app:layout_constraintStart_toStartOf="@+id/random_image"
+        app:layout_constraintTop_toTopOf="@+id/random_image" />
+
     <ImageView
-        android:id="@+id/imageButton"
+        android:id="@+id/random_image"
         android:layout_width="189dp"
         android:layout_height="163dp"
         android:background="@android:color/transparent"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
