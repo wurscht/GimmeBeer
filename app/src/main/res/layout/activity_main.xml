@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         app:barrierDirection="top" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/imageButton"
         android:layout_width="189dp"
         android:layout_height="163dp"
@@ -125,8 +125,7 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.407"
-        app:srcCompat="@drawable/logo_gimmebeer_red" />
+        app:layout_constraintVertical_bias="0.407" />
 
     <TextView
         android:id="@+id/textView"

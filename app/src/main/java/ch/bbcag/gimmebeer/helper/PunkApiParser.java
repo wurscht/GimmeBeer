@@ -27,7 +27,8 @@ public class PunkApiParser {
 
         for (int i = 0; i < beerArray.length(); i++) {
             JSONObject beerObject = beerArray.getJSONObject(i);
-            Beer beer = new Beer(Integer.parseInt(beerObject.getString("id")), beerObject.getString("name"), beerObject.getDouble("abv"), beerObject.getString("image_url"), beerObject.getString("tagline"), beerObject.getString("description"));
+
+            /*Beer beer = new Beer(Integer.parseInt(beerObject.getString("id")), beerObject.getString("name"), beerObject.getDouble("abv"), beerObject.getString("image_url"), beerObject.getString("tagline"), beerObject.getString("description"));
             JSONArray foodPairingJson = beerObject.getJSONArray("food_pairing");
             List<String> foodpairing = new ArrayList<String>();
             for (int j = 0; j < foodPairingJson.length(); j++) {
@@ -35,7 +36,33 @@ public class PunkApiParser {
             }
             beer.setFoodPairing(foodpairing);
             allBeers.add(beer);
+            */
+            allBeers.add(parseSingleBeer(beerObject));
         }
         return allBeers;
     }
+
+    private static Beer parseSingleBeer(JSONObject jsonBeer) throws JSONException {
+        Beer beer = new Beer(Integer.parseInt(jsonBeer.getString("id")), jsonBeer.getString("name"), jsonBeer.getDouble("abv"), jsonBeer.getString("image_url"), jsonBeer.getString("tagline"), jsonBeer.getString("description"));
+        JSONArray foodPairingJson = jsonBeer.getJSONArray("food_pairing");
+        List<String> foodpairing = new ArrayList<String>();
+        for (int j = 0; j < foodPairingJson.length(); j++) {
+            foodpairing.add(foodPairingJson.getString(j));
+        }
+        beer.setFoodPairing(foodpairing);
+
+        return beer;
+    }
+
+
+    public static Beer parseSingleBeer(String stringBeer) throws JSONException {
+        JSONArray jsonBeerArray = new JSONArray(stringBeer);
+        JSONObject jsonBeer = jsonBeerArray.getJSONObject(0);
+
+        return parseSingleBeer(jsonBeer);
+    }
+
+
+
+
 }

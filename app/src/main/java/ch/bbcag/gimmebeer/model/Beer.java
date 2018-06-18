@@ -33,5 +33,9 @@ public class Beer {
     public List<String> getFoodpairing() {
         return foodpairing;
     }
+
+    public String getImage() {
+        return image;
+    }
 }
 
