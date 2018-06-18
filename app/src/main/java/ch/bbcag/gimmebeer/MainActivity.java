@@ -50,8 +50,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button = findViewById(R.id.button_show_all);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button randomBeerButton = findViewById(R.id.random_beer);
+        randomBeerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent refresh = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(refresh);
+                finish();
+            }
+        });
+
+        Button showAllButton = findViewById(R.id.button_show_all);
+        showAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), ShowAllActivity.class));
