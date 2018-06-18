@@ -4,7 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
+
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
+
 import android.widget.ImageView;
-import android.widget.ListView;
+
 import android.widget.ProgressBar;
 
 import com.android.volley.Request;
@@ -24,16 +24,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.util.ArrayList;
-
-import ch.bbcag.gimmebeer.helper.DownloadImageTask;
 import ch.bbcag.gimmebeer.helper.PunkApiParser;
 import ch.bbcag.gimmebeer.model.Beer;
 
@@ -77,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             Beer random_beer = PunkApiParser.parseSingleBeer(response);
-                            ImageView beerImageButton = findViewById(R.id.random_image);
-                            new DownloadImageTask(beerImageButton).execute(random_beer.getImage());
+                            ImageView beerImageView = findViewById(R.id.random_image);
+                            Picasso.get().load(random_beer.getImage()).into(beerImageView);
 
                         } catch (JSONException e) {
                             Log.e("loadImage", "jsonException");

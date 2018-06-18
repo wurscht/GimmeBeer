@@ -27,16 +27,6 @@ public class PunkApiParser {
 
         for (int i = 0; i < beerArray.length(); i++) {
             JSONObject beerObject = beerArray.getJSONObject(i);
-
-            /*Beer beer = new Beer(Integer.parseInt(beerObject.getString("id")), beerObject.getString("name"), beerObject.getDouble("abv"), beerObject.getString("image_url"), beerObject.getString("tagline"), beerObject.getString("description"));
-            JSONArray foodPairingJson = beerObject.getJSONArray("food_pairing");
-            List<String> foodpairing = new ArrayList<String>();
-            for (int j = 0; j < foodPairingJson.length(); j++) {
-                foodpairing.add(foodPairingJson.getString(j));
-            }
-            beer.setFoodPairing(foodpairing);
-            allBeers.add(beer);
-            */
             allBeers.add(parseSingleBeer(beerObject));
         }
         return allBeers;
