@@ -114,7 +114,6 @@
         android:text="All Beers"
         android:textColor="#EAC64C "
         android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

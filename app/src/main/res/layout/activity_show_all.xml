@@ -21,6 +21,13 @@
         app:layout_constraintGuide_percent="0.6666667" />
 
     <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/guideline9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,6 +77,7 @@
         android:text="Home"
         android:textColor="#EAC64C "
         android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,6 +89,7 @@
         android:text="Search"
         android:textColor="#EAC64C "
         android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_home"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,6 +97,9 @@
         android:id="@+id/list_all_beer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
         android:textColor="#233237"
-        android:textSize="30sp"></ListView>
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"></ListView>
+
 </android.support.constraint.ConstraintLayout>
