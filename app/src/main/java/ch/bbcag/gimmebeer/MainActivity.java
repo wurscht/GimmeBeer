@@ -49,19 +49,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         beerId = intent.getIntExtra("id", 0);
 
-
-
-        /*View.OnClickListener clickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (v.equals(beerImageView)) {
-                    Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
-                    intent.putExtra("id", picture.getId());
-                }
-            }
-        };
-        beerImageView.setOnClickListener(clickListener);*/
-
         // Show all button
         Button showAllButton = (Button) findViewById(R.id.button_show_all);
         showAllButton.setOnClickListener(new View.OnClickListener() {

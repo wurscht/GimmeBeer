@@ -29,7 +29,7 @@ import ch.bbcag.gimmebeer.model.Beer;
 public class ShowAllActivity extends AppCompatActivity {
     private int beerId;
     private ProgressBar progressBar;
-    private static final String PUNK_API_URL = "https://api.punkapi.com/v2/beers";
+    private static final String PUNK_API_URL = "https://api.punkapi.com/v2/beers?per_page=80";
     ListView allBeers;
 
     @Override
@@ -49,6 +49,13 @@ public class ShowAllActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent appInfo = new Intent(ShowAllActivity.this, DetailsActivity.class);
                 startActivity(appInfo);
+            }
+        });
+        Button home = (Button) findViewById(R.id.button_home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
     }
