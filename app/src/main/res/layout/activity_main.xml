@@ -164,7 +164,7 @@
 
     <Button
         android:id="@+id/button_show_all"
-        android:layout_width="200dp"
+        android:layout_width="220dp"
         android:layout_height="0dp"
         android:background="@drawable/buttonshape"
         android:text="All Beers"
@@ -175,7 +175,7 @@
 
     <Button
         android:id="@+id/button_search"
-        android:layout_width="200dp"
+        android:layout_width="220dp"
         android:layout_height="0dp"
         android:background="@drawable/buttonshape"
         android:text="Search"

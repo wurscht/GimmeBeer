@@ -43,13 +43,6 @@
         app:layout_constraintGuide_percent="0.25244617" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="384dp" />
-
-    <android.support.constraint.Guideline
         android:id="@+id/guideline17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,13 +58,6 @@
         app:layout_constraintGuide_percent="0.37" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.62" />
-
-    <android.support.constraint.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,13 +70,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.8697917" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="446dp" />
 
     <ProgressBar
         android:id="@+id/progressbar"
@@ -108,7 +87,7 @@
 
     <Button
         android:id="@+id/button_home"
-        android:layout_width="200dp"
+        android:layout_width="220dp"
         android:layout_height="0dp"
         android:background="@drawable/buttonshape"
         android:text="All Beers"
@@ -119,7 +98,7 @@
 
     <Button
         android:id="@+id/button_search"
-        android:layout_width="200dp"
+        android:layout_width="220dp"
         android:layout_height="0dp"
         android:background="@drawable/buttonshape"
         android:text="Search"
@@ -168,18 +147,14 @@
     <android.support.v7.widget.CardView
         android:id="@+id/cardViewKeyNotes"
         android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="2dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:animateLayoutChanges="true"
-        app:layout_constraintBottom_toTopOf="@+id/guideline16"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageDetail"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/imageDetail">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -188,72 +163,33 @@
             <TextView
                 android:id="@+id/txt_key_notes"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:text="Key Notes"
                 android:textAlignment="center"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/detail_txt_key_notes"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="8dp"
                 android:text="ölkjökj"
-                android:visibility="gone"
                 android:textAlignment="center"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_key_notes"
-                app:layout_constraintVertical_bias="0.444" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_key_notes" />
 
 
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.25" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.5" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline21"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.75" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="1" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline26"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="320dp" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="0dp" />
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
@@ -261,91 +197,42 @@
     <android.support.v7.widget.CardView
         android:id="@+id/cardViewDescription"
         android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="2dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:animateLayoutChanges="true"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewKeyNotes"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/cardViewKeyNotes">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txt_description"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Description"
-            android:textAlignment="center"
-            android:textSize="30sp" />
+            <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textAlignment="center"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/detail_txt_description"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:text="ölkjökj"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/guideline4"
-                app:layout_constraintEnd_toStartOf="@+id/guideline29"
-                app:layout_constraintHorizontal_bias="0.026"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline5"
-                app:layout_constraintVertical_bias="0.689" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
 
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.25" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.5" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.75" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="1" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline28"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="0dp" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline29"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="320dp" />
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
@@ -353,81 +240,43 @@
     <android.support.v7.widget.CardView
         android:id="@+id/cardViewFood"
         android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:animateLayoutChanges="true"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewDescription"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/cardViewDescription">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txt_food"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Food Pairing"
-            android:textAlignment="center"
-            android:textSize="30sp" />
+            <TextView
+                android:id="@+id/txt_food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Food Pairing"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="0dp" />
 
             <TextView
                 android:id="@+id/detail_txt_food"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:text="ölkjökj"
                 android:textAlignment="center"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline25"
-                app:layout_constraintVertical_bias="0.444" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.25" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.5" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.75" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline25"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="1" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline30"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="320dp" />
 
             <android.support.constraint.Guideline
                 android:id="@+id/guideline31"
