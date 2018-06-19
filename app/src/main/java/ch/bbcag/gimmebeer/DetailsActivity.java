@@ -21,19 +21,18 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import ch.bbcag.gimmebeer.helper.PunkApiParser;
 import ch.bbcag.gimmebeer.model.Beer;
 
 public class DetailsActivity extends AppCompatActivity {
     private int beerId;
     private static final String PUNK_API_URL = "https://api.punkapi.com/v2/beers";
-    CardView cardView;
-    TextView textView;
+    CardView txtKeyNotes;
+    CardView txtDescription;
+    CardView txtFood;
+    TextView detailTxtKeyNotes;
+    TextView detailTxtDescription;
+    TextView detailTxtFood;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +42,49 @@ public class DetailsActivity extends AppCompatActivity {
         beerId = intent.getIntExtra("id", 0);
         String name = intent.getStringExtra("name");
 
-        cardView = findViewById(R.id.cardViewKeyNotes);
-        textView = findViewById(R.id.detail_txt_key_notes);
+        txtKeyNotes = findViewById(R.id.cardViewKeyNotes);
+        txtDescription = findViewById(R.id.cardViewDescription);
+        txtFood = findViewById(R.id.cardViewFood);
+
+        detailTxtKeyNotes = findViewById(R.id.detail_txt_key_notes);
+        detailTxtDescription = findViewById(R.id.detail_txt_description);
+        detailTxtFood = findViewById(R.id.detail_txt_food);
 
         loadSpecificBeer(PUNK_API_URL + "/" + 1);
 
 
-        cardView.setOnClickListener(new View.OnClickListener() {
+        txtKeyNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (textView.getVisibility() == View.VISIBLE) {
-                    //TransitionManager.beginDelayedTransition(cardView);
-                    textView.setVisibility(View.GONE);
+                if (detailTxtKeyNotes.getVisibility() == View.VISIBLE) {
+                    detailTxtKeyNotes.setVisibility(View.GONE);
                 } else {
-                    TransitionManager.beginDelayedTransition(cardView);
-                    textView.setVisibility(View.VISIBLE);
+                    TransitionManager.beginDelayedTransition(txtKeyNotes);
+                    detailTxtKeyNotes.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        txtDescription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (detailTxtDescription.getVisibility() == View.VISIBLE) {
+                    detailTxtDescription.setVisibility(View.GONE);
+                } else {
+                    TransitionManager.beginDelayedTransition(txtDescription);
+                    detailTxtDescription.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        txtFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (detailTxtFood.getVisibility() == View.VISIBLE) {
+                    detailTxtFood.setVisibility(View.GONE);
+                } else {
+                    TransitionManager.beginDelayedTransition(txtFood);
+                    detailTxtFood.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -78,6 +105,7 @@ public class DetailsActivity extends AppCompatActivity {
                             textDetailDescription.setText(specific_beer.getDescription());
                             TextView textDetailFoodpairing = findViewById(R.id.detail_txt_food);
                             textDetailFoodpairing.setText(specific_beer.getFoodpairing().toString());
+                            
 
                             //progressBar.setVisibility(View.GONE);
                         } catch (JSONException e) {
