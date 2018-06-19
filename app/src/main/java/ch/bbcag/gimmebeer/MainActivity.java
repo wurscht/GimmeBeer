@@ -90,8 +90,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadRandomPicture(String url)
     {
-        final ArrayAdapter<Beer> beerPictureInfoAdapter = new
-                ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -128,16 +126,5 @@ public class MainActivity extends AppCompatActivity {
         dialogBuilder.setMessage("The beer picture could not be loaded. Try it again later.").setTitle("Error");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
-    }
-
-    public Bitmap StringToBitMap(String encodedString){
-        try{
-            byte [] encodeByte=Base64.decode(encodedString,Base64.DEFAULT);
-            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-            return bitmap;
-        }catch(Exception e){
-            e.getMessage();
-            return null;
-        }
     }
 }
