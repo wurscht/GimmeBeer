@@ -20,9 +20,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ch.bbcag.gimmebeer.helper.PunkApiParser;
 import ch.bbcag.gimmebeer.model.Beer;
@@ -37,8 +39,10 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        Intent intent = getIntent();
+        beerId = intent.getIntExtra("id", 0);
+        String name = intent.getStringExtra("name");
 
-        //beerId = intent.getIntExtra("id", 0);
         cardView = findViewById(R.id.cardViewKeyNotes);
         detailView = findViewById(R.id.detail_txt_key_notes);
 
@@ -63,9 +67,13 @@ public class DetailsActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             Beer specific_beer = PunkApiParser.parseSingleBeer(response);
-                            TextView textDetailView = findViewById(R.id.detail_txt_key_notes);
-                            textDetailView.setText(specific_beer.getKeynote());
-
+                            TextView textDetailKeynotes = findViewById(R.id.detail_txt_key_notes);
+                            textDetailKeynotes.setText(specific_beer.getKeynote());
+                            TextView textDetailDescription = findViewById(R.id.detail_txt_description);
+                            textDetailDescription.setText(specific_beer.getDescription());
+                            TextView textDetailFoodpairing = findViewById(R.id.detail_txt_food);
+                            textDetailFoodpairing.setText(specific_beer.getFoodpairing().toString());
+                            
                             //progressBar.setVisibility(View.GONE);
                         } catch (JSONException e) {
                             generateAlertDialog();
