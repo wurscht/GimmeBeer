@@ -10,6 +10,7 @@ import android.transition.TransitionManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -34,11 +35,13 @@ public class DetailsActivity extends AppCompatActivity {
     TextView detailTxtKeyNotes;
     TextView detailTxtDescription;
     TextView detailTxtFood;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        progressBar.setVisibility(View.VISIBLE);
         Intent intent = getIntent();
         beerId = intent.getIntExtra("id", 0);
         String name = intent.getStringExtra("name");
