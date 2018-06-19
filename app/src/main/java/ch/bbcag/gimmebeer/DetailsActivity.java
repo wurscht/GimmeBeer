@@ -33,7 +33,7 @@ public class DetailsActivity extends AppCompatActivity {
     private int beerId;
     private static final String PUNK_API_URL = "https://api.punkapi.com/v2/beers";
     CardView cardView;
-    TextView detailView;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class DetailsActivity extends AppCompatActivity {
         String name = intent.getStringExtra("name");
 
         cardView = findViewById(R.id.cardViewKeyNotes);
-        detailView = findViewById(R.id.detail_txt_key_notes);
+        textView = findViewById(R.id.detail_txt_key_notes);
 
         loadSpecificBeer(PUNK_API_URL + "/" + 1);
 
@@ -52,8 +52,13 @@ public class DetailsActivity extends AppCompatActivity {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TransitionManager.beginDelayedTransition(cardView);
-                detailView.setVisibility(View.VISIBLE);
+                if (textView.getVisibility() == View.VISIBLE) {
+                    //TransitionManager.beginDelayedTransition(cardView);
+                    textView.setVisibility(View.GONE);
+                } else {
+                    TransitionManager.beginDelayedTransition(cardView);
+                    textView.setVisibility(View.VISIBLE);
+                }
             }
         });
     }
@@ -73,7 +78,7 @@ public class DetailsActivity extends AppCompatActivity {
                             textDetailDescription.setText(specific_beer.getDescription());
                             TextView textDetailFoodpairing = findViewById(R.id.detail_txt_food);
                             textDetailFoodpairing.setText(specific_beer.getFoodpairing().toString());
-                            
+
                             //progressBar.setVisibility(View.GONE);
                         } catch (JSONException e) {
                             generateAlertDialog();
