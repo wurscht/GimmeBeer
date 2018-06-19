@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.transition.TransitionManager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,6 +16,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
+
 import org.json.JSONException;
 import org.w3c.dom.Text;
 
@@ -105,7 +108,7 @@ public class DetailsActivity extends AppCompatActivity {
 
                             StringBuilder builder = new StringBuilder();
                             for (String value : specific_beer.getFoodpairing()) {
-                                builder.append(value);
+                                builder.append(value + ".\n");
                             }
                             String foodText = builder.toString();
                             textDetailFoodpairing.setText(foodText);
@@ -114,6 +117,9 @@ public class DetailsActivity extends AppCompatActivity {
                             TextView textAbv = (TextView) findViewById(R.id.detail_abv);
                             String abv = Double.toString(specific_beer.getAbv());
                             textAbv.setText(abv + " %");
+                            ImageView picture = (ImageView) findViewById(R.id.imageDetail);
+                            Picasso.get().load(specific_beer.getImage()).into(picture);
+
                         } catch (JSONException e) {
                             generateAlertDialog();
                         }
