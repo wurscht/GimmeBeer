@@ -170,25 +170,16 @@
 
     <Button
         android:id="@+id/button_show_all"
-        android:layout_width="220dp"
+        android:layout_width="470dp"
         android:layout_height="0dp"
         android:background="@drawable/buttonshape"
         android:text="All Beers"
         android:textColor="#EAC64C "
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_search"
-        android:layout_width="220dp"
-        android:layout_height="0dp"
-        android:background="@drawable/buttonshape"
-        android:text="Search"
-        android:textColor="#EAC64C "
-        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 
 </android.support.constraint.ConstraintLayout>

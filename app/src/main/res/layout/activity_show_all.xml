@@ -71,26 +71,14 @@
 
     <Button
         android:id="@+id/button_home"
-        android:layout_width="220dp"
+        android:layout_width="447dp"
         android:layout_height="0dp"
         android:background="@drawable/buttonshape"
         android:text="Home"
         android:textColor="#EAC64C "
         android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_search"
-        android:layout_width="220dp"
-        android:layout_height="0dp"
-        android:background="@drawable/buttonshape"
-        android:text="Search"
-        android:textColor="#EAC64C "
-        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_home"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
