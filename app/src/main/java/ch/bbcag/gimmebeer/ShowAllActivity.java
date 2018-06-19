@@ -74,6 +74,18 @@ public class ShowAllActivity extends AppCompatActivity {
                             ListView beerInfoList = findViewById(R.id.list_all_beer);
                             beerInfoList.setAdapter(beerInfoAdapter);
                             progressBar.setVisibility(View.GONE);
+                            AdapterView.OnItemClickListener itemListClickedHandler = new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                    Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
+                                    Beer selected = (Beer)parent.getItemAtPosition(position);
+
+                                    intent.putExtra("id", selected.getId());
+                                    startActivity(intent);
+                                }
+                            };
+                            beerInfoList.setOnItemClickListener(itemListClickedHandler);
+
                         } catch (JSONException e) {
                             generateAlertDialog();
                         }

@@ -43,5 +43,7 @@ public class Beer {
     public String getKeynote() { return keynote; }
 
     public String getDescription() { return description; }
+
+    public int getId() { return id; }
 }
 

@@ -50,7 +50,7 @@ public class DetailsActivity extends AppCompatActivity {
         detailTxtDescription = findViewById(R.id.detail_txt_description);
         detailTxtFood = findViewById(R.id.detail_txt_food);
 
-        loadSpecificBeer(PUNK_API_URL + "/" + 1);
+        loadSpecificBeer(PUNK_API_URL + "/" + beerId);
 
 
         txtKeyNotes.setOnClickListener(new View.OnClickListener() {
