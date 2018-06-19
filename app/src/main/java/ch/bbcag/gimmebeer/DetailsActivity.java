@@ -8,18 +8,15 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.transition.TransitionManager;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONException;
+import org.w3c.dom.Text;
 
 import ch.bbcag.gimmebeer.helper.PunkApiParser;
 import ch.bbcag.gimmebeer.model.Beer;
@@ -42,13 +39,13 @@ public class DetailsActivity extends AppCompatActivity {
         beerId = intent.getIntExtra("id", 0);
         String name = intent.getStringExtra("name");
 
-        txtKeyNotes = findViewById(R.id.cardViewKeyNotes);
-        txtDescription = findViewById(R.id.cardViewDescription);
-        txtFood = findViewById(R.id.cardViewFood);
+        txtKeyNotes = (CardView) findViewById(R.id.cardViewKeyNotes);
+        txtDescription = (CardView) findViewById(R.id.cardViewDescription);
+        txtFood = (CardView) findViewById(R.id.cardViewFood);
 
-        detailTxtKeyNotes = findViewById(R.id.detail_txt_key_notes);
-        detailTxtDescription = findViewById(R.id.detail_txt_description);
-        detailTxtFood = findViewById(R.id.detail_txt_food);
+        detailTxtKeyNotes = (TextView) findViewById(R.id.detail_txt_key_notes);
+        detailTxtDescription = (TextView) findViewById(R.id.detail_txt_description);
+        detailTxtFood = (TextView) findViewById(R.id.detail_txt_food);
 
         loadSpecificBeer(PUNK_API_URL + "/" + beerId);
 
@@ -99,19 +96,24 @@ public class DetailsActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             Beer specific_beer = PunkApiParser.parseSingleBeer(response);
-                            TextView textDetailKeynotes = findViewById(R.id.detail_txt_key_notes);
+                            TextView textDetailKeynotes = (TextView) findViewById(R.id.detail_txt_key_notes);
                             textDetailKeynotes.setText(specific_beer.getKeynote());
-                            TextView textDetailDescription = findViewById(R.id.detail_txt_description);
+                            TextView textDetailDescription = (TextView) findViewById(R.id.detail_txt_description);
                             textDetailDescription.setText(specific_beer.getDescription());
-                            TextView textDetailFoodpairing = findViewById(R.id.detail_txt_food);
+                            TextView textDetailFoodpairing = (TextView) findViewById(R.id.detail_txt_food);
+
 
                             StringBuilder builder = new StringBuilder();
                             for (String value : specific_beer.getFoodpairing()) {
                                 builder.append(value);
                             }
                             String foodText = builder.toString();
-
                             textDetailFoodpairing.setText(foodText);
+                            TextView textDetailName = (TextView) findViewById(R.id.detail_beer_name);
+                            textDetailName.setText(specific_beer.toString());
+                            TextView textAbv = (TextView) findViewById(R.id.detail_abv);
+                            String abv = Double.toString(specific_beer.getAbv());
+                            textAbv.setText(abv + " %");
                         } catch (JSONException e) {
                             generateAlertDialog();
                         }

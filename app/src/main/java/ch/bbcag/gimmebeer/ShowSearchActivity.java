@@ -53,7 +53,7 @@ public class ShowSearchActivity extends AppCompatActivity {
                         try {
                             ArrayList<Beer> beer = PunkApiParser.createBeerFromJsonString(response);
                             beerInfoAdapter.addAll(beer);
-                            ListView beerInfoList = findViewById(R.id.list_all_beer);
+                            ListView beerInfoList = (ListView) findViewById(R.id.list_all_beer);
                             beerInfoList.setAdapter(beerInfoAdapter);
                             progressBar.setVisibility(View.GONE);
                         } catch (JSONException e) {

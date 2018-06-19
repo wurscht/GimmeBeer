@@ -36,13 +36,13 @@ public class ShowAllActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_all);
-        progressBar = findViewById(R.id.progressbar);
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
         Intent intent = getIntent();
         beerId = intent.getIntExtra("id", 0);
         String name = intent.getStringExtra("name");
         progressBar.setVisibility(View.VISIBLE);
         loadAllBeer(PUNK_API_URL);
-        allBeers = findViewById(R.id.list_all_beer);
+        allBeers = (ListView) findViewById(R.id.list_all_beer);
         // Make elements in listview show all beer clickable and redirect to detail site
         allBeers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -71,7 +71,7 @@ public class ShowAllActivity extends AppCompatActivity {
                         try {
                             ArrayList<Beer> beer = PunkApiParser.createBeerFromJsonString(response);
                             beerInfoAdapter.addAll(beer);
-                            ListView beerInfoList = findViewById(R.id.list_all_beer);
+                            ListView beerInfoList = (ListView) findViewById(R.id.list_all_beer);
                             beerInfoList.setAdapter(beerInfoAdapter);
                             progressBar.setVisibility(View.GONE);
                             AdapterView.OnItemClickListener itemListClickedHandler = new AdapterView.OnItemClickListener() {

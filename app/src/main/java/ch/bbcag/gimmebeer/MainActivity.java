@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
@@ -35,23 +36,34 @@ public class MainActivity extends AppCompatActivity {
     private static final String PUNK_API_URL_RANDOM = "https://api.punkapi.com/v2/beers/random";
     private ProgressBar progressBar;
     ImageView picture;
+    private int beerId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        progressBar = findViewById(R.id.progressbar);
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
         progressBar.setVisibility(View.VISIBLE);
-        picture = findViewById(R.id.random_image);
-        picture.setOnClickListener(new View.OnClickListener() {
+        picture = (ImageView) findViewById(R.id.random_image);
+        Intent intent = getIntent();
+        beerId = intent.getIntExtra("id", 0);
+
+
+
+        /*View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), DetailsActivity.class));
+            public void onClick(View v) {
+                if (v.equals(beerImageView)) {
+                    Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
+                    intent.putExtra("id", picture.getId());
+                }
             }
-        });
+        };
+        beerImageView.setOnClickListener(clickListener);*/
 
         // Show all button
-        Button showAllButton = findViewById(R.id.button_show_all);
+        Button showAllButton = (Button) findViewById(R.id.button_show_all);
         showAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Random beer button
-        Button randomBeerButton = findViewById(R.id.random_beer);
+        Button randomBeerButton = (Button) findViewById(R.id.random_beer);
         randomBeerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        Button randomLightBeerButton = findViewById(R.id.random_light_beer);
-        Button randomStrongBeerButton = findViewById(R.id.random_strong_beer);
+        Button randomLightBeerButton = (Button) findViewById(R.id.random_light_beer);
+        Button randomStrongBeerButton = (Button) findViewById(R.id.random_strong_beer);
 
         randomLightBeerButton.setOnClickListener(listener);
         randomStrongBeerButton.setOnClickListener(listener);
@@ -90,17 +102,25 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadRandomPicture(String url)
     {
-        final ArrayAdapter<Beer> beerPictureInfoAdapter = new
-                ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            Beer random_beer = PunkApiParser.parseSingleBeer(response);
-                            ImageView beerImageView = findViewById(R.id.random_image);
+                            final Beer random_beer = PunkApiParser.parseSingleBeer(response);
+                            final ImageView beerImageView = (ImageView) findViewById(R.id.random_image);
                             Picasso.get().load(random_beer.getImage()).into(beerImageView);
+
+                            picture.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
+                                    intent.putExtra("id", random_beer.getId());
+                                    startActivity(intent);
+                                }
+                            });
+
 
                         } catch (JSONException e) {
                             Log.e("loadImage", "jsonException");

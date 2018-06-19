@@ -45,5 +45,7 @@ public class Beer {
     public String getDescription() { return description; }
 
     public int getId() { return id; }
+
+    public double getAbv() { return abv; }
 }
 
