@@ -20,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -32,8 +33,6 @@ public class DetailsActivity extends AppCompatActivity {
     CardView cardView;
     TextView detailView;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +40,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         //beerId = intent.getIntExtra("id", 0);
         cardView = findViewById(R.id.cardViewKeyNotes);
+        detailView = findViewById(R.id.detail_txt_key_notes);
 
         loadSpecificBeer(PUNK_API_URL + "/" + 1);
 
@@ -56,20 +56,16 @@ public class DetailsActivity extends AppCompatActivity {
 
     private void loadSpecificBeer(String url)
     {
-        final ArrayAdapter<Beer> beerInfoAdapter = new
-                ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            ArrayList<Beer> beer = PunkApiParser.createBeerFromJsonString(response);
-                            beerInfoAdapter.addAll(beer);
-                            detailView = findViewById(R.id.txt_key_notes);
-                            Intent intent = getIntent();
-                            String keynotes = intent.getStringExtra("keynotes");
-                            detailView.setText(keynotes);
+                            Beer specific_beer = PunkApiParser.parseSingleBeer(response);
+                            TextView textDetailView = findViewById(R.id.detail_txt_key_notes);
+                            textDetailView.setText(specific_beer.getKeynote());
+
                             //progressBar.setVisibility(View.GONE);
                         } catch (JSONException e) {
                             generateAlertDialog();

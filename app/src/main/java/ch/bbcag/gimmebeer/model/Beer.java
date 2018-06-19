@@ -39,5 +39,7 @@ public class Beer {
     public String getImage() {
         return image;
     }
+
+    public String getKeynote() { return keynote; }
 }
 
