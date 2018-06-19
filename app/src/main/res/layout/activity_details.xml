@@ -95,7 +95,7 @@
             app:layout_constraintTop_toTopOf="@+id/imageDetail" />
 
         <Button
-            android:id="@+id/button_home"
+            android:id="@+id/button_show_all"
             android:layout_width="220dp"
             android:layout_height="0dp"
             android:background="@drawable/buttonshape"

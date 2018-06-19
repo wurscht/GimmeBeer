@@ -93,11 +93,19 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
-        Button showAllButton = (Button) findViewById(R.id.button_home);
+        Button showAllButton = (Button) findViewById(R.id.button_show_all);
         showAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), ShowAllActivity.class));
+            }
+        });
+
+        Button home = (Button) findViewById(R.id.button_home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
     }
