@@ -104,10 +104,14 @@ public class DetailsActivity extends AppCompatActivity {
                             TextView textDetailDescription = findViewById(R.id.detail_txt_description);
                             textDetailDescription.setText(specific_beer.getDescription());
                             TextView textDetailFoodpairing = findViewById(R.id.detail_txt_food);
-                            textDetailFoodpairing.setText(specific_beer.getFoodpairing().toString());
-                            
 
-                            //progressBar.setVisibility(View.GONE);
+                            StringBuilder builder = new StringBuilder();
+                            for (String value : specific_beer.getFoodpairing()) {
+                                builder.append(value);
+                            }
+                            String foodText = builder.toString();
+
+                            textDetailFoodpairing.setText(foodText);
                         } catch (JSONException e) {
                             generateAlertDialog();
                         }
@@ -122,7 +126,6 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void generateAlertDialog() {
-        //progressBar.setVisibility(View.GONE);
         AlertDialog.Builder dialogBuilder;
         dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
