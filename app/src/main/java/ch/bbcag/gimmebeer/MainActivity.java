@@ -117,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
 
 
                         } catch (JSONException e) {
-                            Log.e("loadImage", "jsonException");
                             generateAlertDialog();
                         }
                     }

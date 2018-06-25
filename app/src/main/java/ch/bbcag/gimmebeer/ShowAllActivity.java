@@ -29,22 +29,21 @@ import ch.bbcag.gimmebeer.model.Beer;
 public class ShowAllActivity extends AppCompatActivity {
     private int beerId;
     private ProgressBar progressBar;
-    private String PUNK_API_URL = "https://api.punkapi.com/v2/beers?per_page=80";
+    // URL of the API
+    private static final String PUNK_API_URL = "https://api.punkapi.com/v2/beers?per_page=80";
     ListView allBeers;
-    private int buttonId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_all);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        Intent intent = getIntent();
-        beerId = intent.getIntExtra("id", 0);
-        String name = intent.getStringExtra("name");
         progressBar.setVisibility(View.VISIBLE);
+
         loadAllBeer(PUNK_API_URL);
+
         allBeers = (ListView) findViewById(R.id.list_all_beer);
-        // Make elements in listview show all beer clickable and redirect to detail site
+        // Make the elements in the listview "show all" clickable and redirect to detail site
         allBeers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -52,6 +51,8 @@ public class ShowAllActivity extends AppCompatActivity {
                 startActivity(appInfo);
             }
         });
+
+        // Home Button
         Button home = (Button) findViewById(R.id.button_home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +78,7 @@ public class ShowAllActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
+                            // Take all the beers from the API with the method createBeerFromJsonString from the PunkApiParser Class
                             ArrayList<Beer> beer = PunkApiParser.createBeerFromJsonString(response);
                             beerInfoAdapter.addAll(beer);
                             ListView beerInfoList = (ListView) findViewById(R.id.list_all_beer);
@@ -88,10 +90,12 @@ public class ShowAllActivity extends AppCompatActivity {
                                     Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
                                     Beer selected = (Beer)parent.getItemAtPosition(position);
 
+                                    // Send the id of the selected item with the intent
                                     intent.putExtra("id", selected.getId());
                                     startActivity(intent);
                                 }
                             };
+                            // Set on item click listener to the list view
                             beerInfoList.setOnItemClickListener(itemListClickedHandler);
 
                         } catch (JSONException e) {

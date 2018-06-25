@@ -45,18 +45,20 @@ public class DetailsActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         Intent intent = getIntent();
         beerId = intent.getIntExtra("id", 0);
-        String name = intent.getStringExtra("name");
 
+        // Card views
         txtKeyNotes = (CardView) findViewById(R.id.cardViewKeyNotes);
         txtDescription = (CardView) findViewById(R.id.cardViewDescription);
         txtFood = (CardView) findViewById(R.id.cardViewFood);
 
+        // Text views
         detailTxtKeyNotes = (TextView) findViewById(R.id.detail_txt_key_notes);
         detailTxtDescription = (TextView) findViewById(R.id.detail_txt_description);
         detailTxtFood = (TextView) findViewById(R.id.detail_txt_food);
 
         loadSpecificBeer(PUNK_API_URL + "/" + beerId);
 
+        // Set on click listener for keynotes text view
         txtKeyNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +71,7 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
+        // Set on click listener for description text view
         txtDescription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +84,7 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
+        // Set on click listener for food pairing text view
         txtFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,7 +129,7 @@ public class DetailsActivity extends AppCompatActivity {
                             textDetailDescription.setText(specific_beer.getDescription());
                             TextView textDetailFoodpairing = (TextView) findViewById(R.id.detail_txt_food);
 
-
+                            // Formatting to show the food pairing in rows
                             StringBuilder builder = new StringBuilder();
                             for (String value : specific_beer.getFoodpairing()) {
                                 builder.append(value + ".\n");
