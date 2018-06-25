@@ -99,15 +99,26 @@
         app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
     <Button
+        android:id="@+id/button_show_all"
+        android:layout_width="220dp"
+        android:layout_height="36dp"
+        android:background="@drawable/buttonshape"
+        android:text="All Beers"
+        android:textColor="#EAC64C "
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/button_home"
-        android:layout_width="447dp"
+        android:layout_width="210dp"
         android:layout_height="36dp"
         android:background="@drawable/buttonshape"
         android:text="Home"
         android:textColor="#EAC64C "
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
