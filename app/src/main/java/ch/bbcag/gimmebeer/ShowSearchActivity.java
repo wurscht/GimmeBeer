@@ -71,6 +71,15 @@ public class ShowSearchActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
+
+        // Button to show all beers
+        Button showAllButton = (Button) findViewById(R.id.button_show_all);
+        showAllButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ShowAllActivity.class));
+            }
+        });
     }
 
     private void loadAllBeer(String url)
