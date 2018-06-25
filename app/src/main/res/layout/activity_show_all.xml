@@ -72,7 +72,7 @@
     <Button
         android:id="@+id/button_home"
         android:layout_width="447dp"
-        android:layout_height="0dp"
+        android:layout_height="36dp"
         android:background="@drawable/buttonshape"
         android:text="Home"
         android:textColor="#EAC64C "
@@ -85,9 +85,13 @@
         android:id="@+id/list_all_beer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
         android:textColor="#233237"
         android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></ListView>
 
 </android.support.constraint.ConstraintLayout>

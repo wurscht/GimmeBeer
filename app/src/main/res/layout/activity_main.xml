@@ -10,7 +10,7 @@
     <Button
         android:id="@+id/random_strong_beer"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="36dp"
         android:background="@drawable/buttonshape"
         android:text="More Alcohol!"
         android:textColor="#EAC64C "
@@ -22,7 +22,7 @@
     <Button
         android:id="@+id/random_light_beer"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="36dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/buttonshape"
         android:text="Something Light"
@@ -36,7 +36,7 @@
     <Button
         android:id="@+id/random_beer"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="36dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/buttonshape"
@@ -156,8 +156,8 @@
         android:layout_width="395dp"
         android:layout_height="35dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="Your random beer:"
         android:textAlignment="center"
@@ -171,7 +171,7 @@
     <Button
         android:id="@+id/button_show_all"
         android:layout_width="470dp"
-        android:layout_height="0dp"
+        android:layout_height="36dp"
         android:background="@drawable/buttonshape"
         android:text="All Beers"
         android:textColor="#EAC64C "

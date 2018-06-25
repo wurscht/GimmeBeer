@@ -101,7 +101,7 @@
     <Button
         android:id="@+id/button_show_all"
         android:layout_width="220dp"
-        android:layout_height="0dp"
+        android:layout_height="36dp"
         android:background="@drawable/buttonshape"
         android:text="All Beers"
         android:textColor="#EAC64C "
@@ -112,12 +112,25 @@
     <Button
         android:id="@+id/button_search"
         android:layout_width="220dp"
-        android:layout_height="0dp"
+        android:layout_height="36dp"
         android:background="@drawable/buttonshape"
         android:text="Search"
         android:textColor="#EAC64C "
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/list_selected_beer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
+        android:textColor="#233237"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ListView>
 
 </android.support.constraint.ConstraintLayout>
