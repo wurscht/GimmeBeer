@@ -11,9 +11,8 @@ public class Beer {
     private String keynote;
     private String description;
     private List<String> foodpairing = new ArrayList<>();
-    public static final String HIGH_ABV = "8";
-    public static final String LOW_ABV = "5";
 
+    // Constructor
     public Beer (int id, String name, double abv, String image, String keynote, String description) {
         this.id = id;
         this.name = name;
@@ -23,18 +22,15 @@ public class Beer {
         this.description = description;
     }
 
+    // Getter and setter
+    public int getId() { return id; }
+
     @Override
     public String toString() {
         return name;
     }
 
-    public void setFoodPairing(List<String> foodpairing) {
-        this.foodpairing = foodpairing;
-    }
-
-    public List<String> getFoodpairing() {
-        return foodpairing;
-    }
+    public double getAbv() { return abv; }
 
     public String getImage() {
         return image;
@@ -44,8 +40,12 @@ public class Beer {
 
     public String getDescription() { return description; }
 
-    public int getId() { return id; }
+    public void setFoodPairing(List<String> foodpairing) {
+        this.foodpairing = foodpairing;
+    }
 
-    public double getAbv() { return abv; }
+    public List<String> getFoodpairing() {
+        return foodpairing;
+    }
 }
 

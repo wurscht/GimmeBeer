@@ -29,8 +29,9 @@ import ch.bbcag.gimmebeer.model.Beer;
 public class ShowAllActivity extends AppCompatActivity {
     private int beerId;
     private ProgressBar progressBar;
-    private static final String PUNK_API_URL = "https://api.punkapi.com/v2/beers?per_page=80";
+    private String PUNK_API_URL = "https://api.punkapi.com/v2/beers?per_page=80";
     ListView allBeers;
+    private int buttonId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

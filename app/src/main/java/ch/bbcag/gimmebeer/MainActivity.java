@@ -33,11 +33,10 @@ import ch.bbcag.gimmebeer.helper.PunkApiParser;
 import ch.bbcag.gimmebeer.model.Beer;
 
 public class MainActivity extends AppCompatActivity {
+    // URL of the API
     private static final String PUNK_API_URL_RANDOM = "https://api.punkapi.com/v2/beers/random";
     private ProgressBar progressBar;
     ImageView picture;
-    private int beerId;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +45,8 @@ public class MainActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
         progressBar.setVisibility(View.VISIBLE);
         picture = (ImageView) findViewById(R.id.random_image);
-        Intent intent = getIntent();
-        beerId = intent.getIntExtra("id", 0);
 
-        // Show all button
+        // Button to show all beers
         Button showAllButton = (Button) findViewById(R.id.button_show_all);
         showAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Listener for random light beer and random strong beer button
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,27 +76,36 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        // Initiate light beer and strong beer buttons
         Button randomLightBeerButton = (Button) findViewById(R.id.random_light_beer);
         Button randomStrongBeerButton = (Button) findViewById(R.id.random_strong_beer);
 
+        // Set on click listener to buttons
         randomLightBeerButton.setOnClickListener(listener);
         randomStrongBeerButton.setOnClickListener(listener);
 
+        // Execute the loadRandomPicture function to show a random picture
         loadRandomPicture(PUNK_API_URL_RANDOM);
     }
 
+    // Function to load a random picture from the API
     private void loadRandomPicture(String url)
     {
+        // Generate new RequestQueue
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
+                            // Take a single beer from the API with the method parseSingleBeer from the PunkApiParser Class
                             final Beer random_beer = PunkApiParser.parseSingleBeer(response);
                             final ImageView beerImageView = (ImageView) findViewById(R.id.random_image);
+
+                            // Load the random beer picture into the beerImageView with the picasso library
                             Picasso.get().load(random_beer.getImage()).into(beerImageView);
 
+                            // Set a on click listener to redirect to details view if the random beer was clicked
                             picture.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -135,16 +142,5 @@ public class MainActivity extends AppCompatActivity {
         dialogBuilder.setMessage("The beer picture could not be loaded. Try it again later.").setTitle("Error");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
-    }
-
-    public Bitmap StringToBitMap(String encodedString){
-        try{
-            byte [] encodeByte=Base64.decode(encodedString,Base64.DEFAULT);
-            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-            return bitmap;
-        }catch(Exception e){
-            e.getMessage();
-            return null;
-        }
     }
 }

@@ -6,7 +6,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -29,7 +31,9 @@ public class ShowSearchActivity extends AppCompatActivity {
     private int buttonId;
     private String abv;
     private ProgressBar progressBar;
-    private static final String PUNK_API_URL = "https://api.punkapi.com/v2/beers";
+    private String PUNK_API_URL;
+    ListView allBeers;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +42,35 @@ public class ShowSearchActivity extends AppCompatActivity {
         Intent intent = getIntent();
         beerId = intent.getIntExtra("id", 0);
         abv = intent.getStringExtra("abv");
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.VISIBLE);
+
         buttonId = intent.getIntExtra("buttonId", 0);
+
+        if (buttonId == R.id.random_strong_beer) {
+            PUNK_API_URL = "https://api.punkapi.com/v2/beers?abv_gt=8";
+        }
+        else if (buttonId == R.id.random_light_beer) {
+            PUNK_API_URL = "https://api.punkapi.com/v2/beers?abv_lt=4";
+        }
+        loadAllBeer(PUNK_API_URL);
+
+        allBeers = (ListView) findViewById(R.id.list_selected_beer);
+        // Make elements in listview show all beer clickable and redirect to detail site
+        allBeers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent appInfo = new Intent(ShowSearchActivity.this, DetailsActivity.class);
+                startActivity(appInfo);
+            }
+        });
+        Button home = (Button) findViewById(R.id.button_home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
     }
 
     private void loadAllBeer(String url)
@@ -53,9 +85,21 @@ public class ShowSearchActivity extends AppCompatActivity {
                         try {
                             ArrayList<Beer> beer = PunkApiParser.createBeerFromJsonString(response);
                             beerInfoAdapter.addAll(beer);
-                            ListView beerInfoList = (ListView) findViewById(R.id.list_all_beer);
+                            ListView beerInfoList = (ListView) findViewById(R.id.list_selected_beer);
                             beerInfoList.setAdapter(beerInfoAdapter);
                             progressBar.setVisibility(View.GONE);
+                            AdapterView.OnItemClickListener itemListClickedHandler = new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                    Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
+                                    Beer selected = (Beer)parent.getItemAtPosition(position);
+
+                                    intent.putExtra("id", selected.getId());
+                                    startActivity(intent);
+                                }
+                            };
+                            beerInfoList.setOnItemClickListener(itemListClickedHandler);
+
                         } catch (JSONException e) {
                             generateAlertDialog();
                         }
