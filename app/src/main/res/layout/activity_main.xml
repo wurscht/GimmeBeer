@@ -170,7 +170,7 @@
 
     <Button
         android:id="@+id/button_show_all"
-        android:layout_width="470dp"
+        android:layout_width="0dp"
         android:layout_height="36dp"
         android:background="@drawable/buttonshape"
         android:text="All Beers"
